@@ -10,7 +10,7 @@ def logoSenai():
 # Funções com retorno
 def somar(n1, n2):
     resultado = n1 + n2 # Pode-se utilizar variável ou não.
-    return resultado # Váriável recomandada quandoa operação é grande
+    return resultado # Váriável recomandada quando a operação é grande
 
 def subtrair(n1, n2):
     resultado = n1 - n2
