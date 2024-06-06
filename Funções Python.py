@@ -51,8 +51,8 @@ def tabuadaXY(n1):
 def maiorMenor(n1):
     maiorNumero = 0
     menorNumero = sys.maxsize
-    for i in n1:
-        maiorNumero = max(n1[i])
-        menorNumero = min(n1[i])
+
+    maiorNumero = max(n1)
+    menorNumero = min(n1)
     print(f"Maior número: {maiorNumero}")
     print(f"Menor número: {menorNumero}")
