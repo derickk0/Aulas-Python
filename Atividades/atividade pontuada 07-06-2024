@@ -1,0 +1,120 @@
+import os
+import sys
+import time
+
+os.system("cls || clear")
+
+pratos = []
+quantidadePratos: int = 0
+opcao = 0
+subtotal = 0
+repetirEscolha = 0
+desconto = 0
+formaPagamento = 3
+total = 0
+
+while True:
+    os.system("cls || clear")
+    print(f"1 - Pão com pão - R$100")
+    print(f"2 - Milho assado - R$25")
+    print(f"3 - Lasanha - R$50")
+    print(f"4 - Macarrão ao vivo - R$250")
+    print(f"5 - Pé de moleque - R$15")
+    print(f"6 - Coxinha - R$5")
+    print(f"7 - Pastel - R$4")
+    
+    opcao = int(input("Digite o código do prato desejado: "))
+    while opcao < 1 or opcao > 7:
+        input("Opção inválida.")
+        
+        os.system("cls || clear")
+        print(f"1 - Pão com pão - R$100")
+        print(f"2 - Milho assado - R$25")
+        print(f"3 - Lasanha - R$50")
+        print(f"4 - Macarrão ao vivo - R$250")
+        print(f"5 - Pé de moleque - R$15")
+        print(f"6 - Coxinha - R$5")
+        print(f"7 - Pastel - R$4")
+        opcao = int(input("Digite o código do prato desejado: "))
+    
+    match(opcao):
+        case 1:
+            quantidadePratos+=1
+            subtotal+=100
+            pratos.append("1 - Pão com pão")
+        case 2:
+            quantidadePratos+=1
+            subtotal+=25
+            pratos.append("2 - Milho assado")
+        case 3:
+            quantidadePratos+=1
+            subtotal+=50
+            pratos.append("3 - Lasanha")
+        case 4:
+            quantidadePratos+=1
+            subtotal+=250
+            pratos.append("4 - Macarrão ao vivo")
+        case 5:
+            quantidadePratos+=1
+            subtotal+=15
+            pratos.append("5 - Pé de moleque")
+        case 6:
+            quantidadePratos+=1
+            subtotal+=5
+            pratos.append("6 - Coxinha")
+        case 7:
+            quantidadePratos+=1
+            subtotal+=4
+            pratos.append("7 - Pastel")
+            
+    os.system("clear")
+    repetirEscolha = int(input("Deseja escolher outro prato? (1 para sim | 0 para não) "))
+    
+    if (repetirEscolha == 0):
+        while True:
+            os.system("cls || clear")
+            formaPagamento = int(input("Qual a forma de pagamento? (1 para à vista | 2 para à prazo ) "))
+            
+            if(formaPagamento == 1):
+                desconto = subtotal * 0.10
+                total = subtotal - desconto
+                break
+            if(formaPagamento == 2):    
+                quantidadeParcelas = int(input("Digite a quantidade de parcelas desejada: "))
+                valorPorParcela = subtotal / quantidadeParcelas
+                taxa = subtotal * 0.10
+                total = subtotal + taxa
+                break
+            if(formaPagamento != 1 and formaPagamento != 2):
+                input("Opção inválida.")
+        break    
+    
+os.system("cls || clear")
+print("==== Pratos selecionados ====")
+for i in range(quantidadePratos):
+    print(pratos[i])
+print("=============================")
+
+if formaPagamento == 1:
+    print(f"Forma de pagamento: À vista")
+if formaPagamento == 2:   
+    print(f"Forma de pagamento: À prazo")
+
+if formaPagamento == 1:
+    print(f"Valor do desconto: {desconto: .1f}")
+if formaPagamento == 2:
+    print(f"Quantidade de parcelas: {quantidadeParcelas}")
+    print(f"Valor por parcela: {valorPorParcela: .1f}")
+    print(f"Taxa {taxa: .1f}")
+
+print(f"Subtotal: {subtotal: .1f}")
+print(f"Total: {total: .1f}")
+    
+    
+
+
+
+
+
+
+
